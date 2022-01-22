@@ -1,16 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="text/javascript" src="/js/app.js" defer></script>
-  <title>Document</title>
-</head>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon-32x32.png"
+    />
 
-<body>
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/app.js" defer></script>
 
-</body>
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rules__container">
+      <div class="rules">
+        <span class="rules__header">RULES</span>
+        <button class="btn-close" onclick="rulesPop()"></button>
+        <img src="./img/image-rules.svg" alt="Rules of rock paper scissors" id="rules__img">
+      </div>
+    </div>
+    <div class="container">
+      <div class="score__header">
+        <img
+          src="./img/logo.svg"
+          alt="Rock Paper Scissors Logo"
+          class="rps-logo"
+        />
+        <div class="score__block">
+          <span class="score__title">SCORE</span>
+          <span class="score__number" id="score">0</span>
+        </div>
+      </div>
+      
+      <div class="selection__container">
+        
+        <div class="selection__trio">
+          <img class="bg__triangle" src="./img/bg-triangle.svg" alt="">
+          <button class="icon paper" onclick="pickHand('paper')">
+            <span class="icon-inside hand-p"></span>
+          </button>
+          <button class="icon scissors" onclick="pickHand('scissors')">
+            <span class="icon-inside hand-s"></span>
+          </button>
+          <div class="break"></div>
+          <button class="icon rock" onclick="pickHand('rock')">
+            <span class="icon-inside hand-r"></span>
+          </button>
+      </div>
 
+      <div class="result__wrapper">
+        <div class="player__pick pick">
+          <span class="result__pick">YOU PICKED</span>
+          <div class="icon sca" id="out-hand">
+            <span class="icon-inside hand-s" id="inside-hand"></span>
+          </div>
+        </div>
+        <div class="result__match">
+          <span class="outcome"></span>
+          <button class="play-again" id="again" onclick="switchScreen()">PLAY AGAIN</button>
+        </div>
+        <div class="computer__pick pick">
+          <span class="result__pick">THE HOUSE PICKED</span>
+          <!-- <span class="icon-inside sca"></span>   -->
+          <div class="icon sca" id="cpOutside">
+              <span class="icon-inside" id="cpInside"></span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-rules" onclick="rulesPop()">RULES</button>
+  </div>
+  </body>
 </html>
