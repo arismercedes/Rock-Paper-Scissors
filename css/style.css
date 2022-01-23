@@ -135,15 +135,15 @@ button.icon:hover {
 }
 
 .hand-s {
-    background-image: url(/img/icon-scissors.svg);
+    background-image: url(./img/icon-scissors.svg);
 }
 
 .hand-p {
-    background-image: url(/img/icon-paper.svg);
+    background-image: url(./img/icon-paper.svg);
 }
 
 .hand-r {
-    background-image: url(/img/icon-rock.svg);
+    background-image: url(./img/icon-rock.svg);
 }
 
 .break {
