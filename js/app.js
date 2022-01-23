@@ -8,38 +8,25 @@ function computerPlay() {
 }
 
 function playRound() {
-  if (playerSelection == computerSelection)
-  
-  return('TIE');
+  if (playerSelection == computerSelection){
+    return('TIE');
+  }
   else if 
   ((playerSelection == "rock" && computerSelection == "scissors") ||
   (playerSelection == "scissors" && computerSelection == "paper") ||
   (playerSelection == "paper" && computerSelection == "rock")){
     score++;
+    outHand.classList.add('winner');
     return('YOU WIN');
   }
   else if 
   ((playerSelection == "scissors" && computerSelection == "rock") ||
   (playerSelection == "paper" && computerSelection == "scissors") ||
   (playerSelection == "rock" && computerSelection == "paper")) {
+    cpOutHand.classList.add('winner')
     return('YOU LOSE');
   }
 }
-
-// function game() {
-//   for(i = 0; i < 5; i++){
-//     playRound();
-//     if ((playerScore == 3) || ((i == 4) && (playerScore > computerScore))){
-//       return "You Won the Match!"
-//     }
-//     if ((computerScore == 3)  || ((i == 4) && (computerScore > playerScore))){
-//       return "You Lose the Match"
-//     }
-//     if ((i == 4) && (playerScore == computerScore)){
-//       return "Is a tie, nobody wins!"
-//     }
-//   }
-// }
 
 function rulesPop() {
   let x = document.getElementsByClassName("rules__container");
@@ -50,19 +37,40 @@ function rulesPop() {
   }
 }
 
-function pickHand(hand) {
-  let result = document.getElementsByClassName("outcome");
-  let outHand = document.getElementById('out-hand');
-  let insideHand = document.getElementById('inside-hand');
-  let cpOutHand = document.getElementById('cpOutside');
-  let cpInsideHand = document.getElementById('cpInside');
-  let scoreElement = document.getElementById('score');
+document.getElementById("btn-paper").addEventListener("click", function() {
+  playerSelection = 'paper';
+  pickHand();
+  switchScreen();
+})
+document.getElementById("btn-scissors").addEventListener("click", function() {
+  playerSelection = 'scissors';
+  pickHand();
+  switchScreen();
+})
+document.getElementById("btn-rock").addEventListener("click", function() {
+  playerSelection = 'rock';
+  pickHand();
+  switchScreen();
+})
 
-  playerSelection = hand;
+
+let result = document.getElementsByClassName("outcome");
+let outHand = document.getElementById('out-hand');
+let insideHand = document.getElementById('inside-hand');
+let cpOutHand = document.getElementById('cpOutside');
+let cpInsideHand = document.getElementById('cpInside');
+let scoreElement = document.getElementById('score');
+
+function pickHand() {
+  outHand.classList.remove('scissors', 'paper', 'rock', 'winner');
+  insideHand.classList.remove('hand-p', 'hand-s', 'hand-r');
+  cpOutHand.classList.remove('scissors', 'paper', 'rock', 'winner');
+  cpInsideHand.classList.remove('hand-p', 'hand-s', 'hand-r');
+
   computerSelection = computerPlay();
   result[0].innerText = playRound();
 
-  switch (hand) {
+  switch (playerSelection) {
     case 'paper':
       insideHand.classList.add('hand-p');
       break;
@@ -86,33 +94,11 @@ function pickHand(hand) {
       break;
   }
   
- 
   
 
-  
-  outHand.classList.add(hand);
+  outHand.classList.add(playerSelection);
   cpOutHand.classList.add(computerSelection)
   scoreElement.innerText = score
-  console.log(playerSelection);
-  console.log(computerSelection);
-  delete computerSelection;
-  console.log(computerSelection);
-  console.log(playRound());
-
-  let x = document.getElementsByClassName("selection__trio");
-  let y = document.getElementsByClassName("result__wrapper");
-
-  if (x[0].style.display == "none") {
-    x[0].style.display = "flex";
-  } else {
-    x[0].style.display = "none";
-  }
-
-  if (y[0].style.display == "flex") {
-    y[0].style.display = "none";
-  } else {
-    y[0].style.display = "flex";
-  }
 }
 
 function switchScreen() {

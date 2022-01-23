@@ -38,11 +38,7 @@
     </div>
     <div class="container">
       <div class="score__header">
-        <img
-          src="./img/logo.svg"
-          alt="Rock Paper Scissors Logo"
-          class="rps-logo"
-        />
+        <img src="./img/logo.svg"alt="Rock Paper Scissors Logo" class="rps-logo"/>
         <div class="score__block">
           <span class="score__title">SCORE</span>
           <span class="score__number" id="score">0</span>
@@ -53,14 +49,14 @@
         
         <div class="selection__trio">
           <img class="bg__triangle" src="./img/bg-triangle.svg" alt="">
-          <button class="icon paper" onclick="pickHand('paper')">
+          <button class="icon paper" id="btn-paper">
             <span class="icon-inside hand-p"></span>
           </button>
-          <button class="icon scissors" onclick="pickHand('scissors')">
+          <button class="icon scissors" id="btn-scissors">
             <span class="icon-inside hand-s"></span>
           </button>
           <div class="break"></div>
-          <button class="icon rock" onclick="pickHand('rock')">
+          <button class="icon rock" id="btn-rock">
             <span class="icon-inside hand-r"></span>
           </button>
       </div>
@@ -78,7 +74,6 @@
         </div>
         <div class="computer__pick pick">
           <span class="result__pick">THE HOUSE PICKED</span>
-          <!-- <span class="icon-inside sca"></span>   -->
           <div class="icon sca" id="cpOutside">
               <span class="icon-inside" id="cpInside"></span>
           </div>
